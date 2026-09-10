@@ -1,0 +1,7 @@
+{
+  "name": "storvik-bygg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Storvik Bygg & Renovering AB – statisk byggfirmasajt (vanilla HTML/CSS/JS). Ingen build behövs.",
+  "scripts": {}
+}
