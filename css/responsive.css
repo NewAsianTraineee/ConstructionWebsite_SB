@@ -1,0 +1,180 @@
+/* ============================================================
+   Responsiva anpassningar – Storvik Bygg
+   ============================================================ */
+
+/* Liten laptop / iPad Pro */
+@media (max-width: 1024px) {
+  .trust__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+
+  .step__arrow {
+    display: none;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  :root {
+    --fs-3xl: 2.25rem;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__links {
+    position: fixed;
+    inset: 76px 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem var(--gutter) 1.25rem;
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav__links.is-open {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav__links li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav__links li:last-child {
+    border-bottom: 0;
+    margin-top: 0.75rem;
+  }
+
+  .nav__links a {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .nav__links a.is-active {
+    border-bottom: 0;
+  }
+
+  .nav__cta {
+    margin-left: 0;
+  }
+
+  .nav__cta .btn {
+    width: 100%;
+  }
+
+  .sticky-bar {
+    display: grid;
+  }
+
+  body {
+    padding-bottom: 76px;
+  }
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__media img {
+    max-height: 420px;
+  }
+
+  .services__grid,
+  .projects__grid,
+  .gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__media img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-detail__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail__facts {
+    position: static;
+  }
+}
+
+/* Mobil */
+@media (max-width: 620px) {
+  :root {
+    --fs-3xl: 2rem;
+    --fs-2xl: 1.7rem;
+  }
+
+  .services__grid,
+  .projects__grid,
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ba__img {
+    min-height: 220px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .project-detail__gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Smal mobil */
+@media (max-width: 380px) {
+  .sticky-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-bar .btn--ghost {
+    display: none;
+  }
+}
