@@ -19,7 +19,7 @@ export const company = {
   shortName: "Storvik Bygg",
   orgNumber: "556 123-4567",
   tagline: "Lokalt bygg- och renoveringshantverk i Gävle med omnejd",
-  url: "https://storvikbygg.se",
+  url: "https://sbconstruction-mu.vercel.app/",
   address: "Industrigatan 12, 802 51 Gävle",
   area: "Gävle, Sandviken & Gästrikland",
   phoneDisplay: "026-12 34 56",
