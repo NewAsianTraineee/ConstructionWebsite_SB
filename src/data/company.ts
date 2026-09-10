@@ -1,9 +1,25 @@
-/* Företagsuppgifter. Byt namn, telefon och e-post här så uppdateras hela sajten. */
-window.COMPANY = {
+export type TrustItem = {
+  icon: string;
+  title: string;
+  text: string;
+};
+
+export type ProcessStep = {
+  title: string;
+  text: string;
+};
+
+export type FaqItem = {
+  q: string;
+  a: string;
+};
+
+export const company = {
   name: "Storvik Bygg & Renovering AB",
   shortName: "Storvik Bygg",
   orgNumber: "556 123-4567",
   tagline: "Lokalt bygg- och renoveringshantverk i Gävle med omnejd",
+  url: "https://storvikbygg.se",
   address: "Industrigatan 12, 802 51 Gävle",
   area: "Gävle, Sandviken & Gästrikland",
   phoneDisplay: "026-12 34 56",
@@ -12,9 +28,8 @@ window.COMPANY = {
   emailHref: "mailto:info@storvikbygg.se",
   hours: "Måndag–fredag 07:00–17:00",
   hoursExtra: "Ring gärna – vi svarar direkt när vi kan.",
-  referral: "Kontakta oss gärna med fot på ditt projekt. Vi är ett litet team och tar oss tid att lyssna.",
-
-  /* Sektionen direkt efter hero: förtroendepunkter. Hävdar inte siffror eller års erfarenhet. */
+  referral:
+    "Kontakta oss gärna med foto på ditt projekt. Vi är ett litet team och tar oss tid att lyssna.",
   trust: [
     {
       icon: "doc",
@@ -36,9 +51,7 @@ window.COMPANY = {
       title: "Ordning & städning",
       text: "Lämnar alltid byggplatsen städad under arbetets gång och tar med oss rivningsmaterialet.",
     },
-  ],
-
-  /* Arbetsprocessen, steg för steg. */
+  ] satisfies TrustItem[],
   process: [
     {
       title: "Första kontakt",
@@ -60,9 +73,7 @@ window.COMPANY = {
       title: "Färdigt resultat",
       text: "Vi lämnar rent och fint arbetsområde och går igenom resultatet med dig innan vi lämnar över.",
     },
-  ],
-
-  /* Vanliga frågor. */
+  ] satisfies ProcessStep[],
   faq: [
     {
       q: "Vad kostar en renovering normalt?",
@@ -84,5 +95,23 @@ window.COMPANY = {
       q: "Kan jag se tidigare projekt?",
       a: "Absolut – titta i projektgalleriet längre ner på sidan, eller fråga oss så kan vi prata om liknande jobb vi gjort.",
     },
-  ],
+  ] satisfies FaqItem[],
 };
+
+export const navItems = [
+  { label: "Tjänster", href: "#tjanster" },
+  { label: "Projekt", href: "#projekt" },
+  { label: "Om oss", href: "#om-oss" },
+  { label: "Process", href: "#process" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Kontakt", href: "#kontakt" },
+] satisfies { label: string; href: string }[];
+
+export const serviceLinks = [
+  { label: "Renovering", slug: "renovering" },
+  { label: "Tillbyggnad", slug: "tillbyggnad" },
+  { label: "Snickeri", slug: "snickeri" },
+  { label: "Kök & badrum", slug: "kok-badrum" },
+  { label: "Altan & uteplats", slug: "altan-uteplats" },
+  { label: "Fasad & underhåll", slug: "fasad-underhall" },
+] as const;

@@ -1,5 +1,7 @@
 # Kod
 node_modules/
+.next/
+out/
 dist/
 build/
 .vscode/
@@ -14,3 +16,4 @@ desktop.ini
 # Temporära filer
 *.tmp
 *.swp
+.vercel

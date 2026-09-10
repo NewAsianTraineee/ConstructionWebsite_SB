@@ -1,17 +1,32 @@
-/* Projekt. Bilderna ligger i public/images/projects/.
-   Varje projekt kan ha en beforeAfter-åtgärd (före/efter-slider) och egna galleribilder. */
+export type BeforeAfter = {
+  before: string;
+  after: string;
+  note: string;
+};
 
-/* Galleribilder som visas på startsidan. */
-window.GALLERY = [
-  { src: "public/images/gallery/scaffolding.jpg", alt: "Byggnadsställning kring en fasad" },
-  { src: "public/images/gallery/facade-workers.jpg", alt: "Hantverkare vid en fasad på ställning" },
-  { src: "public/images/gallery/woodwork.jpg", alt: "Snickeri i verkstad – arbete med trä" },
-  { src: "public/images/gallery/circular-saw.jpg", alt: "Cirkelsåg som kapar en bräda" },
-  { src: "public/images/gallery/bathtub.jpg", alt: "Nytt badrum med fristående badkar" },
-  { src: "public/images/projects/altan-och-uteplats.jpg", alt: "Nybyggd altan med möbler" },
+export type Project = {
+  slug: string;
+  title: string;
+  category: string;
+  location: string;
+  summary: string;
+  description: string;
+  highlights: string[];
+  image: string;
+  gallery: string[];
+  beforeAfter?: BeforeAfter;
+};
+
+export const galleryImages: { src: string; alt: string }[] = [
+  { src: "/images/gallery/scaffolding.jpg", alt: "Byggnadsställning kring en fasad" },
+  { src: "/images/gallery/facade-workers.jpg", alt: "Hantverkare vid en fasad på ställning" },
+  { src: "/images/gallery/woodwork.jpg", alt: "Snickeri i verkstad – arbete med trä" },
+  { src: "/images/gallery/circular-saw.jpg", alt: "Cirkelsåg som kapar en bräda" },
+  { src: "/images/gallery/bathtub.jpg", alt: "Nytt badrum med fristående badkar" },
+  { src: "/images/projects/altan-och-uteplats.jpg", alt: "Nybyggd altan med möbler" },
 ];
 
-window.PROJECTS = [
+export const projects: Project[] = [
   {
     slug: "koksrenovering",
     title: "Köksrenovering – villa i Gävle",
@@ -22,11 +37,11 @@ window.PROJECTS = [
     description:
       "Vi rev ut ett äldre kök och öppnade upp rummet med en köksö. Elplaneringen gjordes om för att passa ny belysning och vitvaror. Snickeri, kakel och målning utfördes av egna hantverkare på löpande tid.",
     highlights: ["Stambyte i köksdel", "Köksö med bänkskiva i ek", "Målade skåpsfronter"],
-    image: "public/images/projects/koksrenovering.jpg",
-    gallery: ["public/images/gallery/circular-saw.jpg", "public/images/gallery/woodwork.jpg"],
+    image: "/images/projects/koksrenovering.jpg",
+    gallery: ["/images/gallery/circular-saw.jpg", "/images/gallery/woodwork.jpg"],
     beforeAfter: {
-      before: "public/images/projects/koksrenovering.jpg",
-      after: "public/images/services/kok-badrum.jpg",
+      before: "/images/projects/koksrenovering.jpg",
+      after: "/images/services/kok-badrum.jpg",
       note: "Bilder: köket under rivning (före) jämfört med färdigt kök (efter).",
     },
   },
@@ -40,8 +55,8 @@ window.PROJECTS = [
     description:
       "Badrummet plockades ner till stommen och byggdes upp med ny tätning och kakel på golv och väggar. All VVS samordnades med auktoriserad installatör och slutresultatet blev ett luftigt badrum med modern inredning.",
     highlights: ["Golvvärme", "Större duschparti", "Nya tätskikt & kakel"],
-    image: "public/images/projects/badrumsrenovering.jpg",
-    gallery: ["public/images/gallery/bathtub.jpg"],
+    image: "/images/projects/badrumsrenovering.jpg",
+    gallery: ["/images/gallery/bathtub.jpg"],
   },
   {
     slug: "altan-och-uteplats",
@@ -53,8 +68,8 @@ window.PROJECTS = [
     description:
       "Underlaget schaktades om och grundlades med plintar. Altanen byggdes i tryckbehandlat virke med räcke och utetrappa, och vi byggde även en inbyggd bänk längs kanten. Altantak kan läggas till i ett senare skede.",
     highlights: ["Inbyggd bänk", "Räcke & utetrappa", "Tryckbehandlat virke"],
-    image: "public/images/projects/altan-och-uteplats.jpg",
-    gallery: ["public/images/services/altan-uteplats.jpg"],
+    image: "/images/projects/altan-och-uteplats.jpg",
+    gallery: ["/images/services/altan-uteplats.jpg"],
   },
   {
     slug: "tillbyggnad",
@@ -66,8 +81,8 @@ window.PROJECTS = [
     description:
       "Projektet startades med bygglovshandlingar och grundläggning, följt av stomme, tak, fönster och inredning. Fasad liggande panel med underhållsfri behandling som matchar befintligt hus.",
     highlights: ["25 m² ny yta", "Stora fönsterpartier", "Bygglov & ritningar"],
-    image: "public/images/projects/tillbyggnad.jpg",
-    gallery: ["public/images/services/tillbyggnad.jpg"],
+    image: "/images/projects/tillbyggnad.jpg",
+    gallery: ["/images/services/tillbyggnad.jpg"],
   },
   {
     slug: "fasad-malning",
@@ -79,8 +94,8 @@ window.PROJECTS = [
     description:
       "Vi inventerade fasaden ihop med ägaren och bytte ut skadade brädor innan målning. Fasaderna tvåstrykningsmålades med diffusionsöppen kulör och fönsterfoder samt vindskivor målades om för hand.",
     highlights: ["Byte av rötskadat virke", "Tvåstrykningsmålning", "Fönster & vindskivor"],
-    image: "public/images/projects/fasad-malning.jpg",
-    gallery: ["public/images/gallery/facade-workers.jpg"],
+    image: "/images/projects/fasad-malning.jpg",
+    gallery: ["/images/gallery/facade-workers.jpg"],
   },
   {
     slug: "flerbostadshus-fasad",
@@ -92,7 +107,7 @@ window.PROJECTS = [
     description:
       "I samarbete med fastighetsförvaltaren utfördes fogrenovering och enskilda tegelstenar byttes. Entrépartiet byttes ut till nytt miljövänligt och säkert system med lång livslängd.",
     highlights: ["Fogrenovering", "Byte av tegelstenar", "Nytt entréparti"],
-    image: "public/images/projects/flerbostadshus-fasad.jpg",
-    gallery: ["public/images/gallery/scaffolding.jpg"],
+    image: "/images/projects/flerbostadshus-fasad.jpg",
+    gallery: ["/images/gallery/scaffolding.jpg"],
   },
 ];
